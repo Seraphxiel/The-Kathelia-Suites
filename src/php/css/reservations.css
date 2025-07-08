@@ -1,0 +1,244 @@
+/* src/php/css/reservations.css */
+
+body {
+    font-family: 'Cormorant Garamond', serif; /* Apply elegant font to body */
+    background-color: #4e2e1b; /* Dark brown background for the page */
+    margin: 0;
+    padding: 0;
+    color: #f8f1e5; /* Light text for contrast */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 50px auto;
+    background-color: transparent; /* Changed from #1a1a1a to transparent */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    color: #f8f1e5;
+}
+
+h1 {
+    color: #d4af37; /* Gold for main heading */
+    font-family: 'Playfair Display', serif; /* Elegant font for heading */
+    text-align: left;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+.reservation-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #1a1a1a;
+    color: #f8f1e5;
+}
+
+.reservation-table thead tr {
+    background-color: #2a2a2a; /* Slightly lighter dark background for header */
+    color: #d4af37; /* Gold for header text */
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+}
+
+.reservation-table th,
+.reservation-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3); /* Lighter gold border */
+}
+
+.reservation-table tbody tr:nth-child(even) {
+    background-color: #202020; /* Slightly different shade for even rows */
+}
+
+.reservation-table tbody tr:hover {
+    background-color: #333333; /* Darker hover effect */
+}
+
+.reservation-table th:first-child,
+.reservation-table td:first-child {
+    border-left: none; /* No left border for first column */
+}
+
+.reservation-table th:last-child,
+.reservation-table td:last-child {
+    border-right: none; /* No right border for last column */
+}
+
+.reservation-table th {
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.reservation-table td {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1em;
+}
+
+/* Adjustments for responsive design if needed */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .reservation-table,
+    .reservation-table tbody,
+    .reservation-table tr,
+    .reservation-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .reservation-table thead {
+        display: none; /* Hide table header on small screens */
+    }
+
+    .reservation-table tr {
+        margin-bottom: 15px;
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        border-radius: 8px;
+    }
+
+    .reservation-table td {
+        text-align: right; /* Align content to right on small screens */
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .reservation-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: calc(50% - 30px);
+        text-align: left;
+        font-weight: bold;
+        color: #d4af37;
+        font-family: 'Playfair Display', serif;
+    }
+}
+
+/* New styles for reservation cards */
+.reservation-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.reservation-card {
+    background-color: #1a1a1a; /* Darker background for individual cards, was #2a2a2a */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+
+.envelope-header {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #2a2a2a; /* Slightly lighter than card background, was #333333 */
+    cursor: pointer;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.envelope-header:hover {
+    background-color: #333333; /* Darker hover effect, was #444444 */
+}
+
+.envelope-icon {
+    width: 40px;
+    height: auto;
+    margin-right: 15px;
+    transition: transform 0.3s ease;
+}
+
+.envelope-icon.open {
+    /* You might want a slight rotation or different styling for the open state */
+    transform: rotateY(180deg); /* Example: flip effect */
+}
+
+.envelope-header h3 {
+    color: #d4af37; /* Gold for booking number */
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    font-size: 1.8em;
+}
+
+.booking-details {
+    padding: 20px;
+    display: none; /* Initially hidden */
+    background-color: transparent; /* Changed from #1a1a1a to transparent */
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dotted rgba(248, 241, 229, 0.1);
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-row strong {
+    color: #f8f1e5; /* Light text for labels */
+    font-weight: 600;
+    flex-basis: 40%; /* Adjust as needed */
+}
+
+.detail-row span,
+.detail-row a {
+    color: #f8f1e5; /* Light text for values */
+    text-align: right;
+    flex-basis: 60%; /* Adjust as needed */
+    text-decoration: none;
+}
+
+.detail-row a {
+    color: #d4af37; /* Gold for links */
+    text-decoration: underline;
+}
+
+.total-amount strong,
+.total-amount span {
+    color: #d4af37; /* Gold for total amount */
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+@media (max-width: 768px) {
+    .envelope-header {
+        flex-direction: row;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .envelope-header h3 {
+        font-size: 1.5em;
+    }
+
+    .envelope-icon {
+        width: 30px;
+        margin-right: 10px;
+    }
+
+    .detail-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .detail-row strong,
+    .detail-row span,
+    .detail-row a {
+        flex-basis: auto;
+        width: 100%;
+        text-align: left;
+    }
+
+    .detail-row strong {
+        margin-bottom: 5px;
+    }
+} 
