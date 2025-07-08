@@ -1,0 +1,19 @@
+Read Me – Kathelia Suites
+======================================================
+
+1.	Database Backup
+	File: `database/backups/kathelia_suites_20250628_034931.sql` 
+	Location: C:\wamp64\www\kathelia-suites\database\backups\kathelia_suites_20250628_034931.sql
+ 
+2.	Client-Side Homepage URL
+	`http://localhost/kathelia-suites/public/index.php`
+
+3.	Admin-Side Homepage URL
+	`http://localhost/kathelia-suites/admin/index.php
+
+4.	Other Important Instructions  
+	Ensure you have PHP 8.0+ and MySQL 5.7+ (on port 3307) running locally.  
+	If you change any DB credentials or port, update `src/php/db_connect.php`.
+
+5.	Admin UserName: kathelia_suites_admin
+	Admin Password : PUPSTCkathelia 
