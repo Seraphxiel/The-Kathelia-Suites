@@ -1,0 +1,67 @@
+ADMIN
+1. Booking Approvals (admin/bookings.php)
+New booking arrives
+
+When a guest submits a reservation, it’s inserted into bookings with status = 'pending' and no payment yet.
+
+Admin reviews on “Bookings” page
+
+You see all status = 'pending' rows, with columns:
+#, Name, Room, Guest, In, Out, Amenities, Extras, Total (50%), Booking Status (pending), Payment (None)
+
+Actions:
+
+Approve → sets booking.status = 'approved'
+
+Reject → sets booking.status = 'rejected' (or deletes)
+
+Result:
+
+Approved bookings now enter the next stage; rejected ones stop here.
+
+2. Payment Verifications (admin/payments.php)
+Guest submits proof
+
+After approval, the guest uploads payment proof. A payments record is created with status = 'submitted'.
+
+Admin checks on “Payments” page
+
+You see only bookings where booking.status = 'approved' and payment.status = 'submitted', with columns:
+#, Name, Room, In, Out, Ref #, Proof, Total, Action
+
+Actions:
+
+Verify → sets payment.status = 'verified'
+
+Reject → sets payment.status = 'rejected'
+
+Result:
+
+Verified payments move on to the final “completed” list; rejected ones leave the booking in limbo until the guest re-submits or you cancel the booking.
+
+3. Completed Reservations Dashboard (admin/dashboard.php)
+Only fully done
+
+This page pulls only rows where booking.status = 'approved' and payment.status = 'verified'.
+
+What you see:
+
+Metrics cards:
+
+Total Bookings: count of approved reservations
+
+Pending Approvals: count of still-pending reservations
+
+Total Revenue: sum of (nights × rate) + extras for all verified bookings
+
+Table columns:
+Reserv. #, Name, Room, Guest, In, Out, Ref #, Total
+
+End state:
+
+Once a payment is verified, that reservation is permanently listed here as a “Completed Reservation,” included in your revenue stats, and no further admin action is needed.
+
+Quick Summary of Status Fields
+Table	Status Field	Values	Next Stage
+bookings	status	pending → approved → (optionally rejected)	moves to Payments
+payments	status	submitted → verified → (optionally rejected)	moves to Dashboard
