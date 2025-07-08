@@ -1,0 +1,1034 @@
+/* admin/assets/css/admin.css */
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    background-color: #2e2e2e;
+    margin: 0;
+    padding: 0;
+    color: #f8f1e5;
+    line-height: 1.6;
+}
+
+.admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+    background-color: #383838;
+}
+
+.sidebar {
+    width: 280px;
+    background-color: #1a1a1a;
+    padding: 30px 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    flex-shrink: 0;
+}
+
+.sidebar h2 {
+    color: #d4af37;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2em;
+    margin-bottom: 50px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    color: #f8f1e5;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 12px 15px;
+    display: block;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: #3a3a3a;
+    color: #d4af37;
+}
+
+.sidebar ul li a.active {
+    background-color: #d4af37;
+    color: #1a1a1a;
+    font-weight: bold;
+}
+
+.sidebar ul li a.logout-link {
+    margin-top: 50px;
+    color: #d4af37;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: left;
+}
+
+.sidebar ul li a.logout-link:hover {
+    background-color: #e0b84c;
+    color: #1a1a1a;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 40px;
+    min-width: 0;
+}
+
+.main-content h1 {
+    color: #d4af37;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8em;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: #1a1a1a;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card h3 {
+    color: #d4af37;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4em;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #f8f1e5;
+    margin: 0;
+}
+
+.card .sub-text {
+    font-size: 1em;
+    color: #b0b0b0;
+    margin-top: 5px;
+}
+
+/* Specific card styles */
+.card.pending-approvals {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card.pending-approvals p {
+    font-size: 3em;
+    margin-right: 20px;
+}
+
+.card.revenue-trend .chart-placeholder {
+    background-color: #2a2a2a;
+    height: 100px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d4af37; /* Placeholder for actual chart */
+    font-size: 1.2em;
+    overflow: hidden; /* For graph line */
+}
+
+.chart-line {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top right, #d4af37 0%, transparent 50%, #d4af37 100%); /* Simulating a trend line */
+    background-size: 200% 200%;
+    animation: moveLine 5s linear infinite alternate;
+}
+
+@keyframes moveLine {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+.card.amenity-usage .chart-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 100px;
+    margin-top: 15px;
+}
+
+.card.amenity-usage .bar {
+    width: 30%;
+    background-color: #d4af37;
+    margin: 0 5px;
+    border-radius: 3px 3px 0 0;
+    height: var(--height);
+    transition: height 0.3s ease;
+}
+
+.card.amenity-usage .legend {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #b0b0b0;
+}
+
+.card.amenity-usage .legend span {
+    margin: 0 10px;
+}
+
+.card.amaunency-rate .chart-placeholder {
+    background-color: #2a2a2a;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d4af37;
+    font-size: 1.1em;
+    border: 8px solid #d4af37; /* Simulate a partial circle */
+    border-right-color: transparent;
+    border-top-color: transparent;
+    transform: rotate(-45deg); /* To make it look like a usage bar */
+}
+
+.recent-activity {
+    background-color: #1a1a1a;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-top: 30px;
+}
+
+.recent-activity h3,
+.quick-actions h3 {
+    color: #d4af37;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.recent-activity ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recent-activity ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(248, 241, 229, 0.1); /* Subtle line */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.recent-activity ul li:last-child {
+    border-bottom: none;
+}
+
+.recent-activity ul li span {
+    color: #b0b0b0;
+    font-size: 0.9em;
+}
+
+.quick-actions {
+    background-color: #1a1a1a;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-top: 30px;
+}
+
+.quick-actions .action-button {
+    background-color: #d4af37;
+    color: #1a1a1a;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.quick-actions .action-button:hover {
+    background-color: #e0b84c;
+    color: #1a1a1a;
+}
+
+.calendar {
+    background-color: #1a1a1a;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-top: 30px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-header .month-name {
+    color: #d4af37;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+}
+
+.calendar-header .nav-arrow {
+    color: #f8f1e5;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.calendar-days-header,
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    text-align: center;
+}
+
+.calendar-days-header span {
+    color: #b0b0b0;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.calendar-days span {
+    background-color: #2a2a2a;
+    padding: 10px;
+    border-radius: 5px;
+    color: #f8f1e5;
+    font-size: 1em;
+}
+
+.calendar-days span.today {
+    background-color: #d4af37;
+    color: #1a1a1a;
+    font-weight: bold;
+}
+
+.calendar-days span:hover:not(.today) {
+    background-color: #3a3a3a;
+    cursor: pointer;
+}
+
+.calendar-days span.inactive {
+    color: #555;
+    background-color: #1a1a1a;
+}
+
+.bookings-table-container {
+    background-color: #1a1a1a;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-top: 30px;
+}
+
+.bookings-table-container h2 {
+    color: #d4af37;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.bookings-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    background-color: #1a1a1a; /* Dark background for the table */
+    border-radius: 8px;
+    overflow: hidden; /* Ensures rounded corners apply to content */
+}
+
+.bookings-table thead tr {
+    background-color: #1a1a1a; /* Dark background for header */
+}
+
+.bookings-table th,
+.bookings-table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid rgba(248, 241, 229, 0.1); /* Subtle separator */
+}
+
+.bookings-table th {
+    color: #d4af37; /* Gold color for headers */
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.bookings-table td {
+    color: #f8f1e5; /* Light color for body text */
+    font-size: 1em;
+    word-wrap: break-word; /* Ensure long content breaks to next line, preferring word breaks */
+}
+
+.bookings-table tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+.bookings-table tbody tr:nth-child(even) {
+    background-color: #222;
+}
+
+.bookings-table tbody tr:hover {
+    background-color: #2a2a2a; /* Slightly lighter on hover */
+}
+
+.bookings-table td a {
+    color: #d4af37; /* Gold color for links */
+    text-decoration: none;
+    margin-right: 10px;
+    transition: color 0.3s ease;
+    font-weight: bold; /* Ensure font is bold */
+    font-family: 'Cormorant Garamond', serif; /* Ensure same font family as body */
+}
+
+.bookings-table td a:hover {
+    color: #e0b84c; /* Lighter gold on hover */
+}
+
+.bookings-table td:last-child {
+    text-align: center;
+}
+
+.bookings-table .action-button {
+    background-color: #d4af37; /* Gold button background */
+    color: #1a1a1a; /* Dark text for button */
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.bookings-table .action-button:hover {
+    background-color: #e0b84c; /* Lighter gold on hover */
+    color: #1a1a1a;
+}
+
+.bookings-table .approve-btn {
+    background-color: #4CAF50; /* Green for approve */
+}
+
+.bookings-table .approve-btn:hover {
+    background-color: #45a049;
+}
+
+.bookings-table .reject-btn {
+    background-color: #f44336; /* Red for reject */
+}
+
+.bookings-table .reject-btn:hover {
+    background-color: #da190b;
+}
+
+.form-container {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-top: 30px;
+}
+
+.form-container h2 {
+    color: #d4af37;
+    font-family: 'Playfair Display', serif;
+    font-size: 2em;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #f8f1e5;
+    font-size: 1.1em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="number"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #2a2a2a;
+    color: #f8f1e5;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.form-group input[type="text"]::placeholder,
+.form-group input[type="email"]::placeholder,
+.form-group input[type="password"]::placeholder,
+.form-group input[type="number"]::placeholder,
+.form-group textarea::placeholder {
+    color: #b0b0b0;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus,
+.form-group input[type="number"]:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #d4af37;
+    outline: none;
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+}
+
+.form-group button[type="submit"] {
+    background-color: #d4af37;
+    color: #1a1a1a;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.form-group button[type="submit"]:hover {
+    background-color: #c09f30;
+}
+
+.main-content form a {
+    color: #d4af37;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 10px;
+    transition: color 0.3s ease;
+}
+
+.main-content form a:hover {
+    color: #e0b84c;
+}
+
+.room-types-table-container {
+    background-color: #1a1a1a;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-top: 30px;
+}
+
+.room-types-table-container h2 {
+    color: #d4af37;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.bookings-table img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 4px;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse; /* Ensure borders are collapsed */
+    margin-top: 20px;
+    background-color: #1a1a1a;
+    color: #f8f1e5;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.admin-table thead tr {
+    background-color: #2a2a2a; /* Darker header background */
+    color: #d4af37; /* Gold text for header */
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 10px 8px; /* Slightly reduce padding if needed */
+    border-bottom: 1px solid #333;
+    text-align: left;
+    vertical-align: top;
+    font-size: 0.75em; /* Smaller font size for table content */
+}
+
+.admin-table th {
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.admin-table td {
+    font-size: 1em;
+    vertical-align: middle; /* Vertically align content in the middle */
+}
+
+.admin-table tbody tr:hover {
+    background-color: #252525; /* Slightly lighter hover effect */
+}
+
+.admin-table td a {
+    color: #d4af37;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.admin-table td a:hover {
+    color: #e0b84c;
+}
+
+.admin-table td form button {
+    background: transparent;
+    border: none;
+    color: #d4af37; /* Gold color to match the edit link */
+    cursor: pointer;
+    padding: 0;
+    font-size: 1em;
+    font-weight: bold; /* Bold font to match the edit link */
+    transition: color 0.3s ease;
+    font-family: 'Cormorant Garamond', serif; /* Ensure same font family as body */
+}
+
+.admin-table td form button:hover {
+    color: #e0b84c; /* Lighter gold on hover, similar to edit link */
+}
+
+.admin-table .action-button {
+    background-color: #d4af37; /* Gold button background */
+    color: #1a1a1a; /* Dark text for button */
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.admin-table .action-button:hover {
+    background-color: #e0b84c; /* Lighter gold on hover */
+    color: #1a1a1a;
+}
+
+.admin-table .approve-btn {
+    background-color: #4CAF50; /* Green for approve */
+}
+
+.admin-table .approve-btn:hover {
+    background-color: #45a049;
+}
+
+.admin-table .reject-btn {
+    background-color: #f44336; /* Red for reject */
+}
+
+.admin-table .reject-btn:hover {
+    background-color: #da190b;
+}
+
+.filter-form {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent items from wrapping */
+    gap: 10px; /* Reduced gap between elements */
+    margin-bottom: 30px;
+    align-items: center;
+    background-color: #1a1a1a; /* Dark background for filter form */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.filter-form label {
+    color: #f8f1e5;
+    font-size: 1em;
+    font-weight: bold;
+    white-space: nowrap; /* Prevent label text from wrapping */
+}
+
+.filter-form select,
+.filter-form input[type="date"],
+.filter-form input[type="text"] {
+    padding: 8px 12px; /* Reduced padding */
+    border-radius: 5px;
+    border: 1px solid #383838; /* Darker border */
+    background-color: #2e2e2e; /* Darker input background */
+    color: #f8f1e5; /* Light text */
+    font-size: 1em;
+    flex-shrink: 0; /* Allow elements to shrink if necessary */
+}
+
+.filter-form input::placeholder {
+    color: #b0b0b0;
+}
+
+.filter-form button[type="submit"],
+.filter-form a.button {
+    background-color: #d4af37; /* Gold */
+    color: #1a1a1a; /* Dark text */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* For reset link */
+    display: inline-block; /* For reset link */
+    text-align: center;
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+.filter-form button[type="submit"]:hover,
+.filter-form a.button:hover {
+    background-color: #e0b84c;
+}
+
+.filter-form input[type="text"] {
+    max-width: 150px; /* Further reduce max-width for the text input */
+}
+
+.bulk-actions {
+    margin-top: 20px;
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.bulk-actions label {
+    color: #f8f1e5;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.bulk-actions button {
+    background-color: #d4af37;
+    color: #1a1a1a;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.bulk-actions button:hover {
+    background-color: #e0b84c;
+}
+
+.table-responsive {
+    overflow-x: auto; /* Enables horizontal scrolling */
+    margin-top: 30px;
+    background-color: #1a1a1a; /* Dark background for the table container */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.bookings-table td:nth-child(12) { /* Targeting the Action column for the admin-table */
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap to the next line */
+    gap: 5px; /* Space between buttons */
+    justify-content: center; /* Center the buttons within the cell */
+    align-items: center;
+}
+
+.bookings-table .action-button {
+    display: inline-block;
+    padding: 5px 8px; /* Slightly reduced padding */
+    border-radius: 5px;
+    text-align: center;
+    font-size: 0.75em; /* Slightly smaller font */
+    font-weight: bold;
+    margin: 0; /* Remove previous margins */
+    background-color: transparent; /* Make transparent */
+    border: 1px solid #d4af37; /* Yellow border */
+    color: #d4af37; /* Yellow text color */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    min-width: 60px; /* Ensure a minimum width for buttons */
+}
+
+.bookings-table .approve-btn,
+.bookings-table .reject-btn {
+    background-color: transparent !important; /* Override any previous specific colors */
+    color: #d4af37 !important; /* Ensure yellow text */
+    border-color: #d4af37 !important; /* Ensure yellow border */
+}
+
+.bookings-table .approve-btn:hover,
+.bookings-table .reject-btn:hover {
+    background-color: #d4af37 !important; /* Yellow background on hover */
+    color: #1a1a1a !important; /* Dark text on hover */
+}
+
+/* Styles for Admin Panel from index.php */
+.admin-header {
+  background-color: #1a1a1a; /* Dark black */
+  color: #ecf0f1; /* Off-white */
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.admin-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5em;
+  font-weight: 600;
+  color: #d4af37; /* Gold */
+}
+.admin-header .user-info {
+  display: flex;
+  align-items: center;
+}
+.admin-header .user-info span {
+  margin-right: 20px;
+  font-size: 1.1em;
+  color: #f8f1e5;
+}
+.admin-header .user-info a {
+  color: #f8f1e5;
+  text-decoration: none;
+  padding: 8px 15px;
+  border: 1px solid #d4af37; /* Gold border */
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+.admin-header .user-info a:hover {
+  background-color: #d4af37; /* Gold background on hover */
+  color: #1a1a1a; /* Dark text on gold */
+  border-color: #d4af37;
+}
+.admin-header .user-info i {
+  margin-left: 10px;
+  color: #d4af37;
+}
+
+.unauthenticated-content {
+    text-align: center;
+    padding: 50px;
+    background-color: #383838; /* Dark gray */
+    color: #f8f1e5; /* Off-white */
+}
+
+.unauthenticated-content h2 {
+    font-size: 2.5em;
+    color: #d4af37; /* Gold */
+    margin-bottom: 20px;
+}
+
+.unauthenticated-content p {
+    font-size: 1.2em;
+    color: #b0b0b0; /* Lighter gray */
+    margin-bottom: 30px;
+}
+
+.login-button {
+    display: inline-block;
+    background-color: #d4af37; /* Gold */
+    color: #1a1a1a; /* Dark text */
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #c09f30; /* Darker gold */
+    transform: translateY(-2px);
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px); /* Adjust based on header/footer height */
+    background-color: #383838; /* Dark gray background */
+}
+
+.login-form {
+    background-color: #1a1a1a; /* Dark black background */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-form h2 {
+    color: #d4af37; /* Gold */
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2em;
+    margin-bottom: 30px;
+}
+
+.login-form p.error {
+    color: #e74c3c; /* Red for errors */
+    margin-bottom: 20px;
+}
+
+.login-form label {
+    display: block;
+    text-align: left;
+    margin-bottom: 10px;
+    color: #f8f1e5; /* Off-white */
+    font-size: 1.1em;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: calc(100% - 20px); /* Adjust for padding */
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #555; /* Darker gray border */
+    border-radius: 5px;
+    background-color: #2a2a2a; /* Darker background for inputs */
+    color: #f8f1e5; /* Off-white text */
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+    border-color: #d4af37; /* Gold border on focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+}
+
+.login-form button[type="submit"] {
+    background-color: #d4af37; /* Gold */
+    color: #1a1a1a; /* Dark text */
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.login-form button[type="submit"]:hover {
+    background-color: #c09f30; /* Darker gold */
+    transform: translateY(-2px);
+}
+
+.button {
+    display: inline-block;
+    background-color: #d4af37; /* Gold background */
+    color: #1a1a1a; /* Dark text */
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-top: 20px;
+    margin-bottom: 20px; /* Added for spacing */
+}
+
+.button:hover {
+    background-color: #e0b84c;
+    color: #1a1a1a;
+}
+
+/* Styles for badges (Approved, Rejected status) */
+.badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    border: 1px solid #d4af37; /* Gold border */
+    color: #d4af37; /* Gold text */
+    background-color: transparent; /* Transparent background */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.badge:hover {
+    background-color: #d4af37; /* Fill with gold on hover */
+    color: #1a1a1a; /* Dark text on hover */
+}
+
+/* No specific badge-success or badge-danger needed with this new style */
+
+/* Styles for action buttons (Verify, Reject) */
+.admin-table .action-button {
+    display: inline-block;
+    padding: 5px 8px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 0.75em;
+    font-weight: bold;
+    margin: 0;
+    background-color: transparent; /* Transparent background */
+    border: 1px solid #d4af37; /* Gold border */
+    color: #d4af37; /* Gold text */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    min-width: 60px;
+}
+
+.admin-table .action-button:hover {
+    background-color: #d4af37; /* Fill with gold on hover */
+    color: #1a1a1a; /* Dark text on hover */
+    border-color: #d4af37; /* Keep gold border on hover */
+}
+
+.admin-table .approve-btn,
+.admin-table .reject-btn {
+    background-color: transparent !important; /* Override any previous specific colors */
+    color: #d4af37 !important; /* Ensure gold text */
+    border-color: #d4af37 !important; /* Ensure gold border */
+}
+
+.admin-table .approve-btn:hover,
+.admin-table .reject-btn:hover {
+    background-color: #d4af37 !important; /* Gold background on hover */
+    color: #1a1a1a !important; /* Dark text on hover */
+}
